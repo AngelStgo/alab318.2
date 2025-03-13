@@ -4,6 +4,10 @@ const PORT = 3000;
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
+
 // whatever data you add in folders, add it in here as a const variable = the route of the file./
 
 app.get('/', (req, res) => {
