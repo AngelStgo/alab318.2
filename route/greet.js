@@ -1,11 +1,11 @@
-const express = require('express')
-const router = express.Router()
+import express from 'express';
+import {Router} from 'express'  
 
-router.get('/:name', (req, res ) => {
+greetRouter.get('/:name', (req, res ) => {
     const {name} = req.params;
     // res.send("Hello human")
     res.render('greet', {title:"Greetings", name: "Batata Frita" }) //not able to render name value
-})
+});
 
 
-module.exports = router 
+export default greetRouter;

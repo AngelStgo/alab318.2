@@ -1,12 +1,16 @@
-const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = 3000;
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
-const aboutRoute = require('./route/about')
-const greetRoute = require('./route/greet')
-const imageRoute = require('./route/image')
+// const aboutRoute = require('./route/about')
+// const greetRoute = require('./route/greet')
+// const imageRoute = require('./route/image')
+
+import aboutRouter from './route/about.js';
+import greetRouter from './route/greet.js';
+import imageRouter from './route/image.js';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,9 +23,9 @@ app.set('view engine', 'ejs' )
 
 app.use(express.static('images'))
 
-app.use('/about', aboutRoute)
-app.use('/greet', greetRoute)
-app.use('/image', imageRoute)
+app.use('/about', aboutRouter)
+app.use('/greet', greetRouter)
+app.use('/image', imageRouter)
 
 app.get('/', (req, res) => {
     res.render('index', {title: "Home"})

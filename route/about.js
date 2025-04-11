@@ -1,9 +1,9 @@
-const express = require('express')
-const router = express.Router()
+import express from 'express'
+import {Router} from 'express'
 
-router.get('/', (req, res) => {
+aboutRouter.get('/', (req, res) => {
     res.render('about', {title: "About.. about getting so confuse with this ejs stuff"})
     // res.send("This is the about page");
 });
 
-module.exports = router
+export default aboutRouter;
